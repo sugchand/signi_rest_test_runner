@@ -1,0 +1,23 @@
+# ---- scenarios/example.yaml ----
+name: User login and fetch profile
+steps:
+  - name: Login
+    request:
+      method: POST
+      url: "https://api.example.com/login"
+      body:
+        email: "test@example.com"
+        password: "secret"
+    extract:
+      token: "$.access_token"
+
+  - name: Get Profile
+    request:
+      method: GET
+      url: "https://api.example.com/profile"
+      headers:
+        Authorization: "Bearer {{ token }}"
+    assert:
+      status_code: 200
+      body:
+        email: "test@example.com"
