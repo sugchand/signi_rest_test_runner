@@ -1,0 +1,20 @@
+api_base_url: "http://127.0.0.1:8000"
+
+scenarios:
+  - name: Hello API
+    request:
+      method: GET
+      endpoint: /hello
+    response:
+      status_code: 200
+
+  - name: Status API
+    request:
+      method: GET
+      endpoint: /status
+    response:
+      status_code: 200
+api_base_url: "http://127.0.0.1:8000"  # Or your deployed base URL
+
+scenarios:
+  - scenarios/example.yaml
